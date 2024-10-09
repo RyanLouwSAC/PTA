@@ -1,0 +1,240 @@
+{% extends 'directory/base.html' %}
+{% block title %}Home | The Pretoria Local{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+    /* General Typography */
+    body {
+        font-family: 'Montserrat', sans-serif; /* Use Montserrat for body text */
+        color: #333; /* Darker text for better readability */
+        line-height: 1.6; /* Standard line height for readability */
+        overflow: hidden;
+    }
+
+    /* Standard Heading Styles */
+    h1, h2, h3 {
+        color: #000; /* Uniform heading color */
+    }
+
+    h1 {
+        font-size: 3rem; /* 48px */
+        font-weight: 700; /* Bold */
+        margin-bottom: 1.2rem; /* Space below the heading */
+    }
+
+    h2 {
+        font-size: 2.5rem; /* Example size for h2 */
+        font-weight: 700; /* Bold */
+        margin-bottom: 10px; /* Space below h2 */
+    }
+
+    h3 {
+        font-size: 2rem; /* 32px */
+        font-weight: 600; /* Semi-bold */
+        margin-bottom: 0.8rem; /* Space below h3 */
+    }
+
+    /* Standard Paragraph Styles */
+    p {
+        font-size: 1rem; /* 16px */
+        margin-bottom: 1.2rem; /* Space below paragraphs */
+        line-height: 1.8; /* Line height for readability */
+        color: #666; /* Softer color for paragraphs */
+    }
+
+    /* Container for overall padding */
+    .content-container {
+        padding: 5% 5% 0; /* 5% top, 5% left and right, 0 bottom */
+        max-width: 1200px; /* Limit maximum width for better readability */
+        margin: 0 auto; /* Center the container */
+    }
+
+    /* Card styles */
+    .card {
+        text-align: center;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        color: #ffffff; 
+        line-height: 1.6;
+        max-width: 1600px; /* Limit width for better readability */
+    }
+
+    /* Info card styles */
+    .info-card.card {
+        background-color: #0d150a;
+    }
+
+    /* First card styles */
+    .first-card.card {
+        background-color: #0d150a;
+    }
+
+    /* First card title */
+    .first-card.card h2 {
+        color: #ffffff;
+    }
+
+    /* First card paragraph */
+    .first-card.card p {
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: #ffffff;
+    }
+
+    /* Owners Section */
+    .owner-section {
+        margin-top: 20px; /* Add space above the section */
+    }
+
+    .owner-row {
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Space between the columns */
+        align-items: center; /* Center items vertically */
+        margin-bottom: 20px; /* Space below each row */
+    }
+
+   .owner-image {
+    max-width: 30%; /* Change this value to make the images smaller */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+    .owner-description {
+        max-width: 55%; /* Limit width for description */
+        font-style: italic; /* Style as quote */
+        color: #444; /* Color for description text */
+        padding: 0 20px; /* Padding around text */
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 768px) {
+        .owner-row {
+            flex-direction: column; /* Stack columns on smaller screens */
+            align-items: center; /* Center content */
+        }
+
+        .owner-image {
+            max-width: 80%; /* Full width for images on small screens */
+            margin-bottom: 10px; /* Space below image */
+        }
+
+        .owner-description {
+            max-width: 80%; /* Full width for description on small screens */
+            text-align: center; /* Center text */
+        }
+    }
+
+    /* Card container styles */
+    .card-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0;
+        margin: 20px auto;
+        width: 100%;
+    }
+
+    /* Side card styles */
+    .side-card.card {
+        text-align: center;
+        background-color: #f1f1f1; /* Lighter background for contrast */
+        color: #333333; /* Darker text */
+        flex: 1;
+    }
+
+    /* Side card title */
+    .side-card.card h2 {
+        color: #0d150a;
+    }
+
+    /* Side card paragraph */
+    .side-card.card p {
+        color: #333333;
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 768px) {
+        .card-container {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .side-card.card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+</style>
+
+<div class="content-container">
+    <div class="first-card card">
+        <h2>ABOUT</h2>
+        <p>
+            The Pretoria Local is a community-focused business 
+            that aims to stimulate the local economy by connecting 
+            businesses with local consumers. Through a user-friendly 
+            website, we offer an exclusive business directory where 
+            local entrepreneurs can list their services and products. 
+            We also provide social media promotion services to 
+            increase visibility for these businesses, creating a 
+            strong online presence and fostering community engagement.
+        </p>
+    </div>
+
+    <!-- Owners Section -->
+    <div class="owner-section">
+        <div class="owner-row">
+            <div class="owner-description">
+                <blockquote>
+                    Johandri Johnson - Co Owner.
+                </blockquote>
+            </div>
+            <!-- staticfiles/directory/assets/1.jpeg -->
+            <img src="{% static '/directory/assets/1.jpeg' %}" alt="Owner 1" class="owner-image" />
+        </div>
+        
+        <div class="owner-row">
+            <img src="{% static '/directory/assets/2.jpeg' %}" alt="Owner 2" class="owner-image" />
+            <div class="owner-description">
+                <blockquote>
+                    Co Owner & Social media manager.
+                </blockquote>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="side-card card">
+            <h2>OUR VISION</h2>
+            <p>To become the leading platform that fosters a thriving
+                and interconnected local economy in Pretoria, where
+                every business, from small startups to established
+                enterprises, can grow, succeed, and contribute to
+                a vibrant community.</p>
+        </div>
+        
+        <div class="side-card card">
+            <h2>OUR MISSION</h2>
+            <p>
+                Our mission is to support and empower local businesses
+                in Pretoria by providing a dynamic online directory and 
+                leveraging social media to promote their products and 
+                services. We aim to connect businesses with the local 
+                community, driving economic growth and fostering a 
+                strong sense of community pride in shopping and 
+                supporting local. Through our efforts, we strive to 
+                create a sustainable and prosperous environment where 
+                every local business has the opportunity to flourish.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
