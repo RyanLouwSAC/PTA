@@ -1,21 +1,17 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-# Load .env file
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
+SECRET_KEY = 'django-insecure-rzx1flm!cj89&jx(xe+wun9kh*$@+3@6*6(*kxz&h+d1@r4*79'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = True  # Set to False in production
 
-# Allowed hosts from environment variable
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
+# Allowed hosts (adjust as necessary)
+ALLOWED_HOSTS = ['*', 'thepretorialocal.co.za']
 
 # Application definition
 INSTALLED_APPS = [
@@ -88,12 +84,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'  # Ensure there's a leading slash
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Adjust if needed
-
-
 
 # Media files (optional)
 MEDIA_URL = '/media/'  # URL prefix for media files
