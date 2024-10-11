@@ -21,6 +21,15 @@ class Business(models.Model):
     def __str__(self):
         return self.name
 
+    def formatted_social_links(self):
+        formatted_links = []
+        if self.social_links:
+            for key, link in self.social_links.items():
+                platform, username = key.split(':')
+                formatted_links.append(f"{platform.strip()}: {link.strip()}")
+        return formatted_links
+
+
 class Promotion(models.Model):
       title = models.CharField(max_length=255)
       def __str__(self):

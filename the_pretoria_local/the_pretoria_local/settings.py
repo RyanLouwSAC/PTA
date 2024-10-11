@@ -61,7 +61,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://thepretorialocal.co.za',
+    'http://thepretorialocal.co.za',
+    'https://www.thepretorialocal.co.za',
+    'http://www.thepretorialocal.co.za',
+]
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {

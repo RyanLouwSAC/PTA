@@ -146,14 +146,15 @@
                     <h3>Social Media</h3>
                     {% if business.social_links %}
                         <ul>
-                        {% for platform, link in business.social_links.items %}
-                            <li><a href="{{ link }}" target="_blank">{{ platform }}</a></li>
+                        {% for link in business.formatted_social_links %}
+                            <li>{{ link }}</li>
                         {% endfor %}
                         </ul>
                     {% else %}
                         <p>No social media links provided.</p>
                     {% endif %}
                 </div>
+                
             </div>
         </div>
     </div>
