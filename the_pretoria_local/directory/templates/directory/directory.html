@@ -127,36 +127,44 @@
         max-width: 200px; /* Max width similar to the card */
     }
 
-    /* Category card styles */
-    .category-card {
-    background-color: white;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    text-align: center;
-    color: transparent;
-    position: relative;
-    height: 200px;
-    width: 100%;
-    max-width: 200px; /* Ensures all cards have the same size */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Prevents overflow */
-}
 
-.category-card h3 {
+   /* Category card styles */
+    .category-card {
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        height: 200px; /* Fixed height for all cards */
+        width: 100%; /* Full width */
+        max-width: 200px; /* Ensures all cards have the same size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* Prevent overflow */
+    }
+
+   .category-card h3 {
     background: rgba(163, 163, 163, 0.5);
     padding: 10px;
     border-radius: 5px;
     margin: 0;
     font-size: 1.2rem; /* Adjust font size here */
     line-height: 1.4; /* Adjust line height */
-    max-height: 40px; /* Limit height to prevent overlap */
+    max-height: 60px; /* Allow for about 3 lines of text (depends on font size) */
     overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Show ellipsis for overflowing text */
-    white-space: nowrap; /* Prevent text from wrapping */
-}
+    display: -webkit-box; /* Enable box model for clamping */
+    -webkit-box-orient: vertical; /* Set orientation to vertical */
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    white-space: normal; /* Allow text to wrap */
+    flex: 1; /* Allow the heading to take up space in the card */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+   }
+
 
 
     .category-card:hover {
