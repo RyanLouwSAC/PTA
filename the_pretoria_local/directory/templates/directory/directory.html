@@ -129,27 +129,35 @@
 
     /* Category card styles */
     .category-card {
-        background-color: white;
-        background-size: cover;
-        background-position: center;
-        border-radius: 10px;
-        text-align: center;
-        color:  transparent;
-        position: relative;
-        height: 200px;
-        width: 100%;
-        max-width: 200px; /* Ensures all cards have the same size */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    text-align: center;
+    color: transparent;
+    position: relative;
+    height: 200px;
+    width: 100%;
+    max-width: 200px; /* Ensures all cards have the same size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents overflow */
+}
 
-    .category-card h3 {
-        background: rgba(163, 163, 163, 0.5);
-        padding: 10px;
-        border-radius: 5px;
-        margin: 0;
-    }
+.category-card h3 {
+    background: rgba(163, 163, 163, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 1.2rem; /* Adjust font size here */
+    line-height: 1.4; /* Adjust line height */
+    max-height: 40px; /* Limit height to prevent overlap */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
 
     .category-card:hover {
         opacity: 0.8;
