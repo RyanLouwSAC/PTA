@@ -1,9 +1,10 @@
+# directory/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('about', views.about, name='about'),
+    path('about/', views.about, name='about'),
     path('directory/', views.directory_view, name='directory'),
     path('business/<int:pk>/', views.business_detail_view, name='business_detail'),
     path('membership/', views.become_member, name='become_member'),
