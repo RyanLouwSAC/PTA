@@ -9,179 +9,182 @@
 
 
 
-/* Standard Heading Styles */
-h1, h3 {
-    color: #000; /* Uniform heading color */
-}
+    /* Standard Heading Styles */
+    h1, h3 {
+        color: #000; /* Uniform heading color */
+    }
 
-h1 {
-    font-size: 3rem; /* 48px */
-    font-weight: 700; /* Bold */
-    margin-bottom: 1.2rem; /* Space below the heading */
-}
+    h1 {
+        font-size: 3rem; /* 48px */
+        font-weight: 700; /* Bold */
+        margin-bottom: 1.2rem; /* Space below the heading */
+    }
 
-h3 {
-    color: #000000;
-    font-size: 2rem; /* 32px */
-    font-weight: 600; /* Semi-bold */
-    margin-bottom: 0.8rem; /* Space below h3 */
-}
+    h3 {
+        color: #000000;
+        font-size: 2rem; /* 32px */
+        font-weight: 600; /* Semi-bold */
+        margin-bottom: 0.8rem; /* Space below h3 */
+    }
 
-/* Standard Paragraph Styles */
-p {
-    font-size: 1rem; /* 16px */
-    margin-bottom: 1.2rem; /* Space below paragraphs */
-    line-height: 1.8; /* Line height for readability */
-    color: #666; /* Softer color for paragraphs */
-}
+    /* Standard Paragraph Styles */
+    p {
+        font-size: 1rem; /* 16px */
+        margin-bottom: 1.2rem; /* Space below paragraphs */
+        line-height: 1.8; /* Line height for readability */
+        color: #666; /* Softer color for paragraphs */
+    }
 
-/* List Styles */
-ul {
-    margin-bottom: 1.2rem; /* Space below the list */
-}
+    /* List Styles */
+    ul {
+        margin-bottom: 1.2rem; /* Space below the list */
+    }
 
-li {
-    margin-bottom: 0.5rem; /* Space between list items */
-}
+    li {
+        margin-bottom: 0.5rem; /* Space between list items */
+    }
 
 
-.Directory {
-    padding: 1% 10%; /* Top: 5%, Left and Right: 20%, Bottom: 0% */
-}
+    .Directory {
+        padding: 1% 10%; /* Top: 5%, Left and Right: 20%, Bottom: 0% */
+    }
 
-/* Directory Container */
-.Directory_container {
-    padding: 16px;
-}
+    /* Directory Container */
+    .Directory_container {
+        padding: 16px;
+    }
 
-/* Search and Filter Form Styles */
-.search-filter-form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
+    /* Search and Filter Form Styles */
+    .search-filter-form {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
-.input-container {
-    flex: 1; /* Allow the input container to take all available space */
-    position: relative; /* For positioning the search icon/button */
-}
+    .input-container {
+        flex: 1; /* Allow the input container to take all available space */
+        position: relative; /* For positioning the search icon/button */
+    }
 
-#search-bar {
-    width: 100%; /* Full width of the input container */
-    padding: 10px 40px 10px 10px; /* Left padding for the icon */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    #search-bar {
+        width: 100%; /* Full width of the input container */
+        padding: 10px 40px 10px 10px; /* Left padding for the icon */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-.search-button {
-    position: absolute; /* Position the button absolutely inside the input container */
-    right: 5px; /* Align to the right */
-    top: 0; /* Align to the top */
-    bottom: 0; /* Align to the bottom */
-    border: none; /* Remove border */
-    background-color: transparent; /* Transparent background */
-    padding: 0; /* Remove padding */
-    cursor: pointer; /* Pointer on hover */
-}
+    .search-button {
+        position: absolute; /* Position the button absolutely inside the input container */
+        right: 5px; /* Align to the right */
+        top: 0; /* Align to the top */
+        bottom: 0; /* Align to the bottom */
+        border: none; /* Remove border */
+        background-color: transparent; /* Transparent background */
+        padding: 0; /* Remove padding */
+        cursor: pointer; /* Pointer on hover */
+    }
 
-.search-icon {
-    font-size: 18px; /* Adjust size of the emoji */
-    line-height: 40px; /* Center it vertically */
-}
+    .search-icon {
+        font-size: 18px; /* Adjust size of the emoji */
+        line-height: 40px; /* Center it vertically */
+    }
 
-#category-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-left: 10px; /* Space between input and dropdown */
-}
+    #category-select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-left: 10px; /* Space between input and dropdown */
+    }
 
-button {
-    padding: 10px 15px;
-    background-color: #0a3d19;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    button {
+        padding: 10px 15px;
+        background-color: #0a3d19;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-/* Category Grid Styles */
-.category-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap */
-    justify-content: center; /* Centers the cards horizontally */
-    gap: 20px; /* Space between cards */
-    max-width: 1200px; /* Optional: limit grid width */
-    margin: 0 auto; /* Center the entire grid on the page */
-    padding: 20px;
-}
+    /* Category Grid Styles */
+    .category-grid {
+        display: flex;
+        flex-wrap: wrap; /* Allows cards to wrap */
+        justify-content: center; /* Centers the cards horizontally */
+        gap: 20px; /* Space between cards */
+        max-width: 1200px; /* Optional: limit grid width */
+        margin: 0 auto; /* Center the entire grid on the page */
+        padding: 20px;
+    }
 
-/* Wrapper for Category Card */
-.category-card-wrapper {
-   
-    display: flex;
-    justify-content: center; /* Center each card horizontally */
-    align-items: center; /* Center vertically if needed */
-    width: 100%; /* Allow it to take full width inside the grid */
-    max-width: 200px; /* Max width similar to the card */
-}
+    /* Wrapper for Category Card */
+    .category-card-wrapper {
+    
+        display: flex;
+        justify-content: center; /* Center each card horizontally */
+        align-items: center; /* Center vertically if needed */
+        width: 100%; /* Allow it to take full width inside the grid */
+        max-width: 200px; /* Max width similar to the card */
+    }
 
-/* Category card styles */
-.category-card {
-    background-color: white;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    text-align: center;
-    color:  transparent;
-    position: relative;
-    height: 200px;
-    width: 100%;
-    max-width: 200px; /* Ensures all cards have the same size */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    /* Category card styles */
+    .category-card {
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        text-align: center;
+        color:  transparent;
+        position: relative;
+        height: 200px;
+        width: 100%;
+        max-width: 200px; /* Ensures all cards have the same size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.category-card h3 {
-    background: rgba(163, 163, 163, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-    margin: 0;
-}
+    .category-card h3 {
+        background: rgba(163, 163, 163, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        margin: 0;
+    }
 
-.category-card:hover {
-    opacity: 0.8;
-}
+    .category-card:hover {
+        opacity: 0.8;
+    }
 
-/* Business Grid Styles */
-.business-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+    /* Business Grid Styles */
+    .business-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-.business-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 200px;
-}
+    .business-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 200px;
+    }
 
-.business-logo {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+    .business-logo {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 
 </style>
+
+
+
 <div class="Directory">
     <div class="Directory_container">
         <h1>Business Directory</h1>
