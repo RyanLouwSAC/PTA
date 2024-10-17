@@ -6,9 +6,6 @@
 {% block content %}
 
 <style>
-
-
-
     /* Standard Heading Styles */
     h1, h3 {
         color: #000; /* Uniform heading color */
@@ -25,6 +22,7 @@
         font-size: 2rem; /* 32px */
         font-weight: 600; /* Semi-bold */
         margin-bottom: 0.8rem; /* Space below h3 */
+        text-align: center; /* Center align business name */
     }
 
     /* Standard Paragraph Styles */
@@ -33,6 +31,7 @@
         margin-bottom: 1.2rem; /* Space below paragraphs */
         line-height: 1.8; /* Line height for readability */
         color: #666; /* Softer color for paragraphs */
+        text-align: center; /* Center align category */
     }
 
     /* List Styles */
@@ -43,7 +42,6 @@
     li {
         margin-bottom: 0.5rem; /* Space between list items */
     }
-
 
     .Directory {
         padding: 1% 10%; /* Top: 5%, Left and Right: 20%, Bottom: 0% */
@@ -119,7 +117,6 @@
 
     /* Wrapper for Category Card */
     .category-card-wrapper {
-    
         display: flex;
         justify-content: center; /* Center each card horizontally */
         align-items: center; /* Center vertically if needed */
@@ -127,8 +124,7 @@
         max-width: 200px; /* Max width similar to the card */
     }
 
-
-   /* Category card styles */
+    /* Category card styles */
     .category-card {
         background-color: white;
         background-size: cover;
@@ -146,30 +142,28 @@
         text-decoration: none;
     }
 
-   .category-card h3 {
-    background: rgba(163, 163, 163, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-    margin: 0;
-    font-size: 1.2rem; /* Adjust font size here */
-    line-height: 1.4; /* Adjust line height */
-    max-height: 60px; /* Allow for about 3 lines of text (depends on font size) */
-    overflow: hidden; /* Hide overflow text */
-    display: -webkit-box; /* Enable box model for clamping */
-    -webkit-box-orient: vertical; /* Set orientation to vertical */
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
-    white-space: normal; /* Allow text to wrap */
-    flex: 1; /* Allow the heading to take up space in the card */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-    border: none; /* Ensure no border is applied */
-    outline: none; /* Ensure no outline is applied */
-    text-decoration: none;
-   }
-
-
+    .category-card h3 {
+        background: rgba(163, 163, 163, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        margin: 0;
+        font-size: 1.2rem; /* Adjust font size here */
+        line-height: 1.4; /* Adjust line height */
+        max-height: 60px; /* Allow for about 3 lines of text */
+        overflow: hidden; /* Hide overflow text */
+        display: -webkit-box; /* Enable box model for clamping */
+        -webkit-box-orient: vertical; /* Set orientation to vertical */
+        -webkit-line-clamp: 3; /* Limit to 3 lines */
+        text-overflow: ellipsis; /* Add ellipsis for overflow */
+        white-space: normal; /* Allow text to wrap */
+        flex: 1; /* Allow the heading to take up space in the card */
+        display: flex; /* Use flexbox for layout */
+        align-items: center; /* Center text vertically */
+        justify-content: center; /* Center text horizontally */
+        border: none; /* Ensure no border is applied */
+        outline: none; /* Ensure no outline is applied */
+        text-decoration: none;
+    }
 
     .category-card:hover {
         opacity: 0.8;
@@ -186,24 +180,46 @@
         padding: 20px;
     }
 
+    /* Updated Business Card Styles */
     .business-card {
         background-color: white;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         padding: 20px;
         text-align: center;
-        width: 200px;
+        width: 200px; /* Set fixed width */
+        height: 300px; /* Set fixed height for uniformity */
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        justify-content: space-between; /* Space out elements */
     }
 
     .business-logo {
-        width: 100%;
-        height: auto;
+        width: 100%; /* Full width */
+        height: 150px; /* Fixed height for all logos */
         border-radius: 10px;
+        object-fit: cover; /* Crop and center the image */
+    }
+
+    /* Clamping the name and category text */
+    .business-name {
+        display: -webkit-box; /* Enable box model for clamping */
+        -webkit-box-orient: vertical; /* Set orientation to vertical */
+        -webkit-line-clamp: 2; /* Limit to 2 lines for the name */
+        overflow: hidden; /* Hide overflow text */
+        margin: 0; /* Reset margin */
+    }
+
+    .business-category {
+        display: -webkit-box; /* Enable box model for clamping */
+        -webkit-box-orient: vertical; /* Set orientation to vertical */
+        -webkit-line-clamp: 1; /* Limit to 1 line for the category */
+        overflow: hidden; /* Hide overflow text */
+        color: #666; /* Softer color for the category */
+        margin: 5px 0; /* Margin above and below */
     }
 
 </style>
-
-
 
 <div class="Directory">
     <div class="Directory_container">
@@ -229,18 +245,19 @@
         </form>
 
         <div>
-            <!-- Categories Grid -->
             <div id="category-grid" class="category-grid">
                 {% if not search_query %}
                     {% for category in categories %}
                     <div class="category-card-wrapper">
-                        <a href="{% url 'directory' %}?category={{ category.id }}" class="category-card" style="background-image: url('{{ category.image }}');">
+                        <!-- Change the URL to point to the correct view -->
+                        <a href="{% url 'businesses_by_category' category.id %}" class="category-card" style="background-image: url('{{ category.image }}');">
                             <h3>{{ category.name }}</h3>
                         </a>
                     </div>
                     {% endfor %}
                 {% endif %}
             </div>
+            
 
             <!-- Business List (only shows if there is a search query or selected category) -->
             <div id="business-grid" class="business-grid">
@@ -252,9 +269,9 @@
                                 <a href="{% url 'business_detail' business.id %}">
                                     <img src="{{ business.logo_url }}" alt="{{ business.name }} logo" class="business-logo">
                                 </a>
-                                <h3>{{ business.name }}</h3>
-                                <p>{{ business.category.name }}</p>
-                                <a href="{% url 'business_detail' business.id %}">View Details</a>
+                                <h3 class="business-name">{{ business.name }}</h3>
+                                <p class="business-category">{{ business.category.name }}</p>
+                                <!-- <a href="{% url 'business_detail' business.id %}">View Details</a> -->
                             </div>
                         </div> <!-- End of new wrapper div -->
                         {% endfor %}

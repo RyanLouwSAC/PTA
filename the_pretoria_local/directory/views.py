@@ -37,7 +37,23 @@ def directory_view(request):
 
     return render(request, 'directory/directory.html', context)
 
+def businesses_by_category_view(request, category_id):
+    # Get all categories for the dropdown (if needed)
+    categories = Category.objects.all()
+    
+    # Get the selected category
+    selected_category = get_object_or_404(Category, id=category_id)
 
+    # Filter businesses based on the selected category
+    businesses = Business.objects.filter(category=selected_category)
+
+    context = {
+        'businesses': businesses,
+        'categories': categories,
+        'selected_category': selected_category,
+    }
+
+    return render(request, 'directory/businesses_by_category.html', context)
 
 
 

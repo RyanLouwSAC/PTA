@@ -1,0 +1,121 @@
+{% extends 'directory/base.html' %}
+{% load static %}
+
+{% block title %}Businesses in {{ category.name }} | The Pretoria Local{% endblock %}
+
+{% block content %}
+
+<style>
+    /* Standard Heading Styles */
+    h1, h3 {
+        color: #000; /* Uniform heading color */
+    }
+
+    h1 {
+        font-size: 3rem; /* 48px */
+        font-weight: 700; /* Bold */
+        margin-bottom: 1.2rem; /* Space below the heading */
+    }
+
+    h3 {
+        color: #000000;
+        font-size: 1.5rem; /* Adjusted font size */
+        font-weight: 600; /* Semi-bold */
+        margin-bottom: 0.5rem; /* Space below h3 */
+        text-align: center; /* Center align the business name */
+    }
+
+    /* Standard Paragraph Styles */
+    p {
+        font-size: 1rem; /* 16px */
+        margin-bottom: 1.2rem; /* Space below paragraphs */
+        line-height: 1.5; /* Line height for readability */
+        color: #666; /* Softer color for paragraphs */
+        text-align: center; /* Center align the category */
+    }
+
+    /* Directory Container */
+    .Directory {
+        padding: 1% 10%; /* Top: 5%, Left and Right: 20%, Bottom: 0% */
+    }
+
+    .Directory_container {
+        padding: 16px;
+    }
+
+    /* Business Grid Styles */
+    .business-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .business-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 200px; /* Set width */
+        height: 300px; /* Set fixed height for all cards */
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        justify-content: space-between; /* Space out elements */
+    }
+
+    .business-logo {
+        width: 100%; /* Full width */
+        height: 150px; /* Fixed height for uniformity */
+        border-radius: 10px;
+        object-fit: cover; /* Crop and center the image */
+    }
+
+    /* Clamping the name and category text */
+    .business-name {
+        display: -webkit-box; /* Enable box model for clamping */
+        -webkit-box-orient: vertical; /* Set orientation to vertical */
+        -webkit-line-clamp: 2; /* Limit to 2 lines for the name */
+        overflow: hidden; /* Hide overflow text */
+        margin: 0; /* Reset margin */
+    }
+
+    .business-category {
+        display: -webkit-box; /* Enable box model for clamping */
+        -webkit-box-orient: vertical; /* Set orientation to vertical */
+        -webkit-line-clamp: 1; /* Limit to 1 line for the category */
+        overflow: hidden; /* Hide overflow text */
+        color: #666; /* Softer color for the category */
+        margin: 5px 0; /* Margin above and below */
+    }
+</style>
+
+<div class="Directory">
+    <div class="Directory_container">
+      
+
+        <div id="business-grid" class="business-grid">
+            {% if businesses %}
+                {% for business in businesses %}
+                <div class="business-card-wrapper">
+                    <div class="business-card">
+                        <a href="{% url 'business_detail' business.id %}">
+                            <img src="{{ business.logo_url }}" alt="{{ business.name }} logo" class="business-logo">
+                        </a>
+                        <h3 class="business-name">{{ business.name }}</h3>
+                        <p class="business-category">{{ business.category.name }}</p>
+                        <!-- <a href="{% url 'business_detail' business.id %}">View Details</a> -->
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No businesses found in this category.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
